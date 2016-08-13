@@ -10,11 +10,12 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
 Route::get('/', 'PagesController@getIndex');
-
 Route::get('about', 'PagesController@getAbout');
-
 Route::get('contact', 'PagesController@getContact');
+Route::resource('posts', 'PostController'); //CRUD route
 
-Route::resource('post', 'PagesController');
+
+Route::group(['middleware' => ['web']], function() {
+
+});
